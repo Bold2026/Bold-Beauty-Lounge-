@@ -1,0 +1,24 @@
+<?php
+
+namespace Workdo\Account\Events;
+
+use Illuminate\Queue\SerializesModels;
+
+class CreateChartAccount
+{
+    use SerializesModels;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    public $request;
+    public $account;
+
+    public function __construct($request ,$account)
+    {
+        $this->request = $request;
+        $this->account = $account;
+    }
+}

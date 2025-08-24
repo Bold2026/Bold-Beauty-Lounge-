@@ -1,0 +1,474 @@
+/*================================================================================================*/
+/*=================[                                                            ]=================*/
+/*=================[    !!!!!!!!   CSS CREATED BY RAJODIYA INFOTECH  !!!!!!!!   ]=================*/
+/*=================[                                                            ]=================*/
+/*================================================================================================*/
+/* =========================== */
+/* !! SITE PAGE USE !!         -
+1.  Home                       -
+2.  Collection  List           -
+3.  Product detail             -
+4.  About us                   -
+5.  FAQs                       -
+6.  Contact Us                 -
+7.  Login/Register/Account     -
+8.  Privacy Policy             -
+9.  Blog                       -
+10. Article                    -
+11. Wishlist                   -
+12. Cart                       -
+/* =========================== */
+/* ============================================= */
+/* !!!!         VARIABLES STYLE CSS         !!!! */
+/* ============================================= */
+/* --theme1: #0CAF60;
+    --theme2: #75C251;
+    --theme3: #584ED2;
+    --theme4: #145388;
+    --theme5: #B9406B;
+    --theme6: #008ECC;
+    --theme7: #922C88;
+    --theme8: #C0A145;
+    --theme9: #48494B;
+    --theme10: #0C7785;
+    */
+:root {
+    --first-font: 'Overpass', sans-serif;
+    --second-font: 'Overpass', sans-serif;
+    --theme-color: #0CAF60;
+    --second-color: #e3dfdf;
+    --light-color: #0CAF606F;
+    --border-color: #3E3F4A;
+    --black: #05103B;
+    --white: #ffffff;
+    --light-bg: #FBFCFE;
+    --grey-color: #888888;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+    --h1: normal 600 51px/1.2 var(--first-font);
+    --h2: normal 600 41px/1.2 var(--first-font);
+    --h3: normal 600 26px/1.2 var(--first-font);
+    --h4: normal 600 22px/1.2 var(--first-font);
+    --h5: normal 600 18px/1.2 var(--first-font);
+    --h6: normal 600 14px/1.2 var(--first-font);
+    --common-text: normal 400 16px/1.4 var(--first-font);
+    /* dark color  */
+    --dark-main: #22242c;
+    --dark-second: #292a33;
+}
+
+body.theme-1 {
+    --theme-color: #0CAF60;
+    --second-color: #e3dfdf;
+    --black: #000000;
+    --light-color: #0CAF606F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-2 {
+    --theme-color: #75C251;
+    --second-color: #d8f1cd;
+    --black: #000000;
+    --light-color: #75C2516F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-3 {
+    --theme-color: #584ED2;
+    --second-color: #b3b0ff;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+    --black: #000000;
+    --light-color: #584ED26F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-4 {
+    --theme-color: #145388;
+    --second-color: #4c9adb;
+    --black: #101214;
+    --light-color: #1453883b;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-5 {
+    --theme-color: #B9406B;
+    --second-color: #b5b5b5;
+    --black: #000000;
+    --light-color: #B9406B6F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-6 {
+    --theme-color: #008ECC;
+    --second-color: #94d9f7;
+    --black: #000000;
+    --light-color: #008ECC6F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-7 {
+    --theme-color: #922C88;
+    --second-color: #e5d4e4;
+    --black: #000000;
+    --light-color: #922C886F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-8 {
+    --theme-color: #C0A145;
+    --second-color: #e3e3e3;
+    --black: #000000;
+    --light-color: #C0A1456F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-9 {
+    --theme-color: #48494B;
+    --second-color: #d1d1d1;
+    --black: #716f6f;
+    --light-color: #48494B6F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+
+body.theme-10 {
+    --theme-color: #0C7785;
+    --second-color: #a9cacf;
+    --black: #000000;
+    --light-color: #0C77856F;
+    --box-shadow: -2.37901px 23.6244px 43px var(--light-color);
+}
+body.custom-color{
+    --theme-color:var(--color-customColor);
+    --second-color: #061b1e;
+    --black: #000000;
+    --light-color: #0C77856F;
+        --box-shadow:-2.37901px 23.6244px 43px var(--light-color);
+}
+.main-home-first-section .section-title p {
+    color: var(--white);
+}
+
+/* ============================================= */
+/* !!!!        SITE GLOBAL STYLE CSS        !!!! */
+/* ============================================= */
+
+body {
+    color: var(--white);
+    font: var(--common-text);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--dark-second);
+}
+
+::-webkit-input-placeholder {
+    color: var(--white);
+}
+
+:-ms-input-placeholder {
+    color: var(--white);
+}
+
+::placeholder {
+    color: var(--white);
+}
+
+/* ============================================= */
+/* !!!!          COMMON BUTTON              !!!! */
+/* ============================================= */
+.btn {
+    background-color: #0e0e0e;
+    border: 1px solid var(--border-color);
+}
+
+.link-btn:hover {
+    color: var(--white);
+}
+
+.link-btn:hover svg {
+    fill: var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--dark-second);
+    color: var(--white);
+}
+
+
+
+/* ============================================= */
+/* !!!!             FORM  CSS               !!!! */
+/* ============================================= */
+.form-control,
+input:not([type="submit"]),
+input:not([type="checkbox"]),
+input:not([type="radio"]),
+select,
+textarea {
+    position: relative;
+    border: 1px solid var(--border-color);
+    padding: 15px 20px;
+    background: var(--dark-second);
+    color: var(--white);
+}
+
+.section-title b {
+    color: var(--white);
+}
+
+.section-title p {
+    color: var(--white);
+}
+
+.header-style-one .main-navigationbar .menu-items-col .main-nav>li.lnk-btn>a {
+    background: var(--theme-color);
+}
+
+/* announcebar */
+.site-header.header-style-one {
+    background: var(--dark-second);
+    color: var(--white);
+}
+.header-style-one .main-navigationbar .menu-items-col .main-nav>li>a{
+    color: var(--white);
+}
+
+
+
+.header-style-one .announcebar {
+    background-color: var(--dark-main);
+}
+
+.mobile-menu-wrapper .mobile-menu-bar>ul {
+    background: var(--dark-second);
+}
+
+.support-card-inner {
+    background: #292a33;
+}
+
+.support-card:nth-child(odd) .support-card-inner {
+    background: var(--dark-second);
+}
+
+.support-card:nth-child(even) .support-card-inner {
+    background: var(--second-color);
+    color: var(--black);
+}
+
+.bg-white {
+    background: var(--dark-main);
+}
+
+.btn.btn-white {
+    background: var(--dark-second);
+    color: var(--second-color);
+    border-color: var(--border-color);
+}
+
+.btn.btn-white svg path {
+    fill: var(--second-color);
+}
+
+.btn.btn-white:hover {
+    background: var(--white);
+    color: var(--dark-main);
+    border-color: var(--border-color);
+}
+
+.btn.btn-white:hover svg path {
+    fill: var(--dark-main);
+}
+
+.information-card-inner {
+    background: var(--second-color);
+    color: var(--black);
+}
+
+.information-card-inner .card-icon svg path {
+    fill: #212a26;
+}
+
+.product-main-section .link-btn svg g path:last-of-type,
+.why-choose-section .link-btn svg g path:last-of-type,
+.dedicated-section .link-btn svg g path:last-of-type {
+    fill: var(--white);
+}
+
+.review-section .link-btn svg g path:last-of-type,
+.banner-content .link-btn svg g path:last-of-type {
+    fill: var(--white);
+}
+
+.package-detail-section {
+    background: var(--dark-main);
+    color: var(--white);
+}
+
+.built-technology {
+    background: linear-gradient(to bottom, transparent 81%, var(--dark-main) 8%);
+}
+
+/* Footer style */
+.site-footer {
+    background: var(--dark-main);
+    color: var(--white);
+}
+
+.product-list-search {
+    background: var(--dark-second);
+    border: 1px solid var(--border-color);
+}
+
+.product-search {
+    background: var(--white);
+    box-shadow: -1.65876px 16.4721px 31.0436px rgb(34 36 40 / 98%);
+}
+
+.filter-itm .cat-count {
+    background: #EAEBEE;
+    color: var(--dark-main);
+}
+
+.product-card-inner {
+    background: var(--dark-main);
+    border: 1px solid var(--border-color);
+    box-shadow: -2.37901px 23.6244px 44.5228px rgb(61 65 74 / 60%);
+}
+
+.product-content .btn.cart-btn {
+    margin-top: 10px;
+    width: 100%;
+    background: var(--dark-main);
+    border: 1px solid #808191;
+    color: #808191;
+}
+
+.why-choose-section {
+    background: linear-gradient(to bottom, var(--dark-main) 70%, transparent 50%);
+}
+
+.pricing-tab .tabs .tab-link.active {
+    background: var(--dark-second);
+    color: var(--second-color);
+}
+
+.pricing-content .lbl {
+    color: #d9d9d9;
+}
+
+.screenshot-slider .slick-arrow {
+    background: var(--theme-color);
+    box-shadow: 1px 1px 11.235px 5px var(--light-color);
+}
+
+.package-card-inner {
+    border: 1px solid var(--theme-color);
+    box-shadow: -2.61824px 26px 49px rgb(60 62 74 / 53%);
+}
+
+.cart-summery {
+    background: var(--dark-main);
+    box-shadow: -2.61824px 26px 49px rgb(53 56 72 / 51%);
+}
+
+.qty-spinner {
+    width: 100%;
+    box-shadow: -2.61824px 26px 49px rgb(39 43 62 / 52%);
+}
+
+.qty-spinner button svg path {
+    fill: var(--white);
+}
+
+.qty-spinner input {
+    color: var(--white);
+}
+
+.module-section {
+    background: linear-gradient(to bottom, transparent 90%, var(--theme-color) 50%);
+}
+
+.faq-section .set {
+    border: 0;
+    background: var(--dark-main);
+    box-shadow: -2.14722px 21.3227px 40.1851px rgb(35 37 44 / 60%);
+    border: 1px solid var(--border-color);
+}
+
+.faq-section .set .acnav-label {
+    background: var(--dark-main);
+    box-shadow: -2.14722px 21.3227px 40.1851px rgb(35 37 44 / 60%);
+    border: 1px solid var(--border-color);
+}
+
+/* ============================================= */
+/* !!!!       DESKTOP HOVER CSS             !!!! */
+/* ============================================= */
+@media (hover: hover) {
+    .header-style-one .main-navigationbar .menu-items-col .main-nav>li.lnk-btn>a:hover {
+        background: var(--white);
+        color: var(--black);
+    }
+    .header-style-one .main-navigationbar .menu-items-col .main-nav>li.lnk-btn>a:hover svg path{
+        fill: var(--black);
+    }
+
+
+    body.theme-9 .product-card-inner:hover .product-content .btn.cart-btn:not(.selected) {
+        border-color: var(--theme-color);
+        background: var(--light-color);
+        color: var(--white);
+    }
+}
+
+/* ************************************ */
+/* custom */
+/* ************************************ */
+/* new css add by dinesh 15-05-23  */
+body.theme-4 .dedicated-section .information-card:nth-child(even) .information-card-inner,
+body.theme-4 .built-technology .information-card:first-child .information-card-inner,
+body.theme-4 .built-technology .information-card:last-child .information-card-inner,
+body.theme-7 .dedicated-section .information-card:nth-child(even) .information-card-inner,
+body.theme-7 .built-technology .information-card:first-child .information-card-inner,
+body.theme-7 .built-technology .information-card:last-child .information-card-inner,
+body.theme-9 .dedicated-section .information-card:nth-child(even) .information-card-inner,
+body.theme-9 .built-technology .information-card:first-child .information-card-inner,
+body.theme-9 .built-technology .information-card:last-child .information-card-inner,
+body.theme-10 .dedicated-section .information-card:nth-child(even) .information-card-inner,
+body.theme-10 .built-technology .information-card:first-child .information-card-inner,
+body.theme-10 .built-technology .information-card:last-child .information-card-inner {
+    color: var(--white);
+}
+
+body.theme-7 .dedicated-section .information-card:nth-child(even) .information-card-inner svg path,
+body.theme-7 .built-technology .information-card:first-child .information-card-inner svg path,
+body.theme-7 .built-technology .information-card:last-child .information-card-inner svg path,
+body.theme-9 .dedicated-section .information-card:nth-child(even) .information-card-inner svg path,
+body.theme-9 .built-technology .information-card:first-child .information-card-inner svg path,
+body.theme-9 .built-technology .information-card:last-child .information-card-inner svg path,
+body.theme-10 .dedicated-section .information-card:nth-child(even) .information-card-inner svg path,
+body.theme-10 .built-technology .information-card:first-child .information-card-inner svg path,
+body.theme-10 .built-technology .information-card:last-child .information-card-inner svg path,
+body.theme-4 .information-card-inner .card-icon svg path {
+    fill: var(--white);
+}
+
+
+/* dark mode responsive  */
+@media screen and (max-width:767px) {
+    .product-filter-body {
+        background: var(--dark-second);
+      }
+
+    .product-filter-body .close-filter {
+        background: var(--theme-color);
+    }
+}
+
+/*  module detail page -> module name */
+
+.pdp-summery .section-title h2 {
+    text-transform: capitalize;
+}

@@ -1,0 +1,26 @@
+{
+    "name": "marouanbahtit/pos",
+    "description": "Description for pos package",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\Pos\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\Pos\\Providers\\PosServiceProvider",
+                "MarouanBahtit\\Pos\\Providers\\VendorPurchase"
+            ]
+        }
+    }
+}

@@ -1,0 +1,98 @@
+/********************************* COMPANY LOGIN CSS *********************************/
+
+/**dashboard/accounting**/
+.page-header h4, .page-header .h4 {
+    margin-bottom: 5px;
+}    
+
+/**calender**/
+.btn-box label{
+    margin-bottom: 10px;
+}
+/**dashboard/settings/brand-settings**/
+@media screen and (max-width:1200px){   
+    .setting-logo-card {
+        width: 260px;
+    }    
+}
+/**dashboard/page-header**/
+@media (max-width: 575px){
+    .page-header {
+        padding: 0px;
+    }
+}
+
+/**dashboard/customer**/
+@media (max-width: 575px){
+    .breadcrumb{
+        margin-bottom: 10px;
+    }
+}
+.status-filter button {
+    padding: 7px 12px !important;    
+}    
+@media screen and (max-width:576px){   
+    .setting-logo-card {
+        width: 230px;
+    }    
+}
+/**dashboard/crm**/
+.dash1-card {
+    height: 185px !important;
+}
+
+
+/********************************* SUPERADMIN CSS *********************************/
+
+@media screen and (max-width:576px) {
+    .navbar-brand-img {
+        max-width: 150px !important;
+        width: 100%;
+    }
+
+    .auth-wrapper .auth-content:not(.container) .card-body {
+        padding: 40px 0px;
+    }
+}
+
+/************* pagination css ************/
+@media screen and (max-width:767px) {
+    .pagination-wrp {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .pagination-wrp .pagination {
+        display: none;
+    }
+
+    /* list-group css */
+    .list-group .list-group-item {
+        padding: 10px 15px;
+    }
+    .theme-avtar {
+        height: 35px;
+        width: 35px;
+    }
+    .card-header,
+    .card-body,
+    .card-footer {
+        padding: 20px 15px;
+    }
+
+    .card .card-header:not(.border-0) h5:after, .card .card-header:not(.border-0) .h5:after {
+        left: -15px;
+    }
+    html[dir="rtl"] .card .card-header:not(.border-0) h5:after, html[dir="rtl"] .card .card-header:not(.border-0) .h5:after {
+        right: -15px;
+        left: auto;
+    }
+}
+@media screen and (max-width:575px) {
+    .pagination-wrp {
+        margin: 0 0 20px;
+    }
+    .nex-prev-btn-wrp .btn {
+        padding: 8px 10px;
+    }
+}

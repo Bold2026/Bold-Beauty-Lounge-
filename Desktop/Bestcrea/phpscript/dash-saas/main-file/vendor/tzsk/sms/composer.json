@@ -1,0 +1,82 @@
+{
+    "name": "tzsk/sms",
+    "description": "Laravel SMS Gateway Integration Package",
+    "keywords": [
+        "tzsk",
+        "sms",
+        "laravel sms gateway",
+        "laravel textlocal",
+        "laravel twilio",
+        "laravel link mobility",
+        "laravel kavenegar",
+        "laravel melipayamak",
+        "laravel smsir",
+        "laravel tsms",
+        "laravel farazsms",
+        "laravel SmsGateWay24",
+        "laravel SMS gateway me"
+    ],
+    "homepage": "https://github.com/tzsk/sms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kazi Ahmed",
+            "email": "mailtokmahmed@gmail.com",
+            "homepage": "https://github.com/tzsk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/http": "^8.0|^9.0|^10.0|^11.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "aws/aws-sdk-php": "^3.87",
+        "kavenegar/php": "^1.2",
+        "laravel/legacy-factories": "^1.0",
+        "laravel/pint": "^1.5",
+        "mediaburst/clockworksms": "^2.0",
+        "melipayamak/php": "^1.0.0",
+        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+        "phpunit/phpunit": "^9.3|^10.5",
+        "sms77/api": "^v2.4.0",
+        "smsgatewayme/client": "^0.0.1",
+        "twilio/sdk": "^7.3",
+        "vimeo/psalm": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tzsk\\Sms\\": "src"
+        },
+        "files": [
+            "src/Helper.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tzsk\\Sms\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "vendor/bin/phpunit --colors=always",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tzsk\\Sms\\SmsServiceProvider"
+            ],
+            "aliases": {
+                "Sms": "Tzsk\\Sms\\Facades\\Sms"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

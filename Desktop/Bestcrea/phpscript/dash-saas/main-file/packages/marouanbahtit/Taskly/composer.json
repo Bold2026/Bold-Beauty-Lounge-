@@ -1,0 +1,26 @@
+{
+    "name": "marouanbahtit/taskly",
+    "description": "Description for taskly package",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\Taskly\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\Taskly\\Providers\\TasklyServiceProvider",
+                "MarouanBahtit\\Taskly\\Providers\\ViewComposer"
+            ]
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "marouanbahtit/hrm",
+    "description": "Description for hrm package",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\Hrm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\Hrm\\Providers\\HrmServiceProvider",
+                "MarouanBahtit\\Hrm\\Providers\\BranchFields"
+            ]
+        }
+    }
+}

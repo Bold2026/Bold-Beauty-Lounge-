@@ -1,0 +1,29 @@
+{
+    "name": "marouanbahtit/account",
+    "description": "Description for account package",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\Account\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\Account\\Providers\\AccountServiceProvider",
+                "MarouanBahtit\\Account\\Providers\\InvoicePayment",
+                "MarouanBahtit\\Account\\Providers\\RetainerPayment",
+                "MarouanBahtit\\Account\\Providers\\ViewComposer",
+                "MarouanBahtit\\Account\\Providers\\ProjectBillProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "workdo/lead",
+    "description": "Description for lead package",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Workdo\\Lead\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WorkDo",
+            "email": "support@workdo.io"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Workdo\\Lead\\Providers\\LeadServiceProvider",
+                "Workdo\\Lead\\Providers\\ViewComposer"
+            ]
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+
+namespace Workdo\$STUDLY_NAME$\Listeners;
+use App\Events\SuperAdminMenuEvent;
+
+class SuperAdminMenuListener
+{
+    /**
+     * Handle the event.
+     */
+    public function handle(SuperAdminMenuEvent $event): void
+    {
+        $module = '$STUDLY_NAME$';
+        $menu = $event->menu;
+        $menu->add([
+            'category' => 'General',
+            'title' => '$STUDLY_NAME$',
+            'icon' => 'home',
+            'name' => '$LOWER_NAME$',
+            'parent' => null,
+            'order' => 2,
+            'ignore_if' => [],
+            'depend_on' => [],
+            'route' => 'home',
+            'module' => $module,
+            'permission' => 'manage-dashboard'
+        ]);
+    }
+}

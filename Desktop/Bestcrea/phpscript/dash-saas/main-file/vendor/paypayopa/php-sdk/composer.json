@@ -1,0 +1,76 @@
+{
+    "name": "paypayopa/php-sdk",
+    "description": "PHP SDK for PayPay Open Payment API",
+    "license": "Apache-2.0",
+    "type": "library",
+    "keywords": [
+        "japan",
+        "opa",
+        "paypay",
+        "payment",
+        "qr",
+        "qrcode"
+    ],
+    "authors": [
+        {
+            "name": "PayPay Open Source Development Team",
+            "email": "opensource@paypay-corp.co.jp"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/core/"
+        ],
+        "psr-4": {
+            "PayPay\\OpenPaymentAPI\\": "src/",
+            "PayPay\\OpenPaymentAPI\\Controller\\": "src/Controllers/"
+        },
+        "files": [
+            "src/helpers/utility_hmac.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PayPay\\OpenPaymentAPI\\Test\\": "test/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.4.8"
+        },
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.0.0",
+        "ext-json": "*",
+        "firebase/php-jwt": "^5.5 || ^6.0",
+        "guzzlehttp/guzzle": "^6.0 || ^7.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16 || ^3.0",
+        "php-coveralls/php-coveralls": "^2.2",
+        "phpstan/phpstan": "^0.12.33 || ^1.0.0",
+        "phpunit/phpunit": "^9"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --testdox tests",
+        "check-style": "vendor/bin/php-cs-fixer fix --dry-run --rules=@PSR2 --using-cache no src && vendor/bin/php-cs-fixer fix --dry-run --rules=@PSR2 --using-cache no tests && vendor/bin/php-cs-fixer fix --dry-run --rules=@PSR2 --using-cache no examples",
+        "fix-style": "vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache no src && vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache no tests && vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache no tests",
+        "phpstan": "vendor/bin/phpstan analyze -c phpstan.neon",
+        "tests_run": "vendor/bin/phpunit --testdox tests",
+        "qr_test": "vendor/bin/phpunit --testdox --debug tests/QrTest.php",
+        "aclink_test": "vendor/bin/phpunit --debug --testdox ./tests/AccountLinkTest.php",
+        "refund_test": "vendor/bin/phpunit --testdox --debug tests/RefundTest.php",
+        "users_test": "vendor/bin/phpunit --testdox --debug tests/UserTest.php",
+        "wallet_test": "vendor/bin/phpunit --testdox --debug tests/WalletTest.php"
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests.",
+        "check-style": "Run style checks (only dry run - no fixing!).",
+        "fix-style": "Run style checks and fix violations.",
+        "phpstan": "Run phpstan static code analysis"
+    }
+}

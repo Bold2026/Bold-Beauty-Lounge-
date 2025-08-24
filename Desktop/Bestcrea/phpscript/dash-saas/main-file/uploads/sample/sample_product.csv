@@ -1,0 +1,4 @@
+Name,SKU,Sale_Price,Purchase_Price,Quantity,Type,Description
+PC,00BG102,50000,45000,100,product,test demo
+TV,T0F201,45000,45000,150,service,test demo
+LAPTOP,L0912P,70000,65000,100,product,test demo

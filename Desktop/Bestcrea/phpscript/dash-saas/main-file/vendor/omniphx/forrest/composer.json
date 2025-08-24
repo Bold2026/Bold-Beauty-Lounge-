@@ -1,0 +1,56 @@
+{
+    "name": "omniphx/forrest",
+    "description": "A Laravel library for Salesforce",
+    "license": "MIT",
+    "keywords": [
+        "salesforce",
+        "laravel",
+        "rest",
+        "force.com",
+        "force"
+    ],
+    "authors": [
+        {
+            "name": "Matthew Mitchener",
+            "homepage": "http://mattmitchener.com",
+            "email": "mattjmitchener@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "~7.2 || ~8.0",
+        "firebase/php-jwt": "^5.2|~6.0",
+        "illuminate/cache": "~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
+        "illuminate/contracts": "~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
+        "illuminate/config": "~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
+        "illuminate/http": "~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
+        "illuminate/routing": "~6.0|~7.0|~8.0|~9.0|~10.0|~11.0",
+        "nesbot/carbon": "^2.0|^3.0",
+        "guzzlehttp/guzzle": "~6.0|~7.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~6.0|~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omniphx\\Forrest\\": "src/Omniphx/Forrest/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpspec run"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Omniphx\\Forrest\\Providers\\Laravel\\ForrestServiceProvider"
+            ],
+            "aliases": {
+                "Forrest": "Omniphx\\Forrest\\Providers\\Laravel\\Facades\\Forrest"
+            }
+        }
+    }
+}

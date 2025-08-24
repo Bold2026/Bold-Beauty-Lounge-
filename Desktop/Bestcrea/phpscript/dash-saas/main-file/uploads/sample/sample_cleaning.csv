@@ -1,0 +1,5 @@
+type,customer_name,building_type,building_unit,address,description,booking_date,cleaning_date
+walk-in,Alice Johnson,Office Building,"Floor 3, Suite 301","456 Elm Street,
+Metropolis, USA","Deep cleaning
+Service",2024-03-09,2024-03-10
+walk-in,John Smith,Residential,Apt 12B,"123 Main St, Gotham, USA",Carpet Cleaning,2024-04-01,2024-04-02

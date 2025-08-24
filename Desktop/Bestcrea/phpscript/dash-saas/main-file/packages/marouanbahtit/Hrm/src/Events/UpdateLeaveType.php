@@ -1,0 +1,35 @@
+<?php
+
+namespace Workdo\Hrm\Events;
+
+use Illuminate\Queue\SerializesModels;
+
+class UpdateLeaveType
+{
+    use SerializesModels;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+
+    public $request;
+    public $leavetype;
+
+    public function __construct($request, $leavetype)
+    {
+        $this->request = $request;
+        $this->leavetype = $leavetype;
+    }
+
+    /**
+     * Get the channels the event should be broadcast on.
+     *
+     * @return array
+     */
+    public function broadcastOn()
+    {
+        return [];
+    }
+}

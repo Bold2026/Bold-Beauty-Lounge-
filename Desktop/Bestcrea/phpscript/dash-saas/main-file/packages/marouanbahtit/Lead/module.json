@@ -1,0 +1,15 @@
+{
+    "name": "Lead",
+    "alias": "CRM",
+    "description": "",
+    "keywords": [],
+    "priority": 40,
+    "version": 3.7,
+    "child_module": [
+        "FormBuilder",
+        "HubSpot"
+    ],
+    "monthly_price": 0,
+    "yearly_price": 0,
+    "package_name": "lead"
+}

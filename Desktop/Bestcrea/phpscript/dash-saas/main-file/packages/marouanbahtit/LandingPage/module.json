@@ -1,0 +1,11 @@
+{
+    "name": "LandingPage",
+    "alias": "CMS",
+    "description": "",
+    "priority": 0,
+    "version": 3.6,
+    "monthly_price": 0,
+    "yearly_price": 0,
+    "display": false,
+    "package_name": "landing-page"
+}

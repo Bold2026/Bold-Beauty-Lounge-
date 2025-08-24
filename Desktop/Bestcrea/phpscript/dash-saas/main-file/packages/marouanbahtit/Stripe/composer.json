@@ -1,0 +1,54 @@
+{
+    "name": "marouanbahtit/stripe",
+    "description": "Description for stripe package",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "stripe/stripe-php": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\Stripe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\Stripe\\Providers\\StripeServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\ViewComposer",
+                "MarouanBahtit\\Stripe\\Providers\\InvoicePayment",
+                "MarouanBahtit\\Stripe\\Providers\\RetainerPayment",
+                "MarouanBahtit\\Stripe\\Providers\\CoursePayment",
+                "MarouanBahtit\\Stripe\\Providers\\HotelRoomBookingPayment",
+                "MarouanBahtit\\Stripe\\Providers\\propertyInvoicePayment",
+                "MarouanBahtit\\Stripe\\Providers\\VehicleBookingPayment",
+                "MarouanBahtit\\Stripe\\Providers\\MembershipPlanPayment",
+                "MarouanBahtit\\Stripe\\Providers\\BeautySpaSerivceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\ParkingSerivceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\ContentPayment",
+                "MarouanBahtit\\Stripe\\Providers\\MovieShowBookingServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\EventShowBookingServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\BookingsServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\FacilitiesSerivceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\ChildFeePayment",
+                "MarouanBahtit\\Stripe\\Providers\\VcardSerivceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\CoworkingPlanServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\CoworkingBookingServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\WaterParkServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\SportsAndClubBookingSerivceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\SportsAndClubMembershipPlanSerivceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\BoutiqueBookingServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\BankAccountPayments",
+                "MarouanBahtit\\Stripe\\Providers\\BrandDepositServiceProvider",
+                "MarouanBahtit\\Stripe\\Providers\\NGODonationPayment",
+                "MarouanBahtit\\Stripe\\Providers\\ArtShowcasePaymentSerivceProvider"
+            ]
+        }
+    }
+}

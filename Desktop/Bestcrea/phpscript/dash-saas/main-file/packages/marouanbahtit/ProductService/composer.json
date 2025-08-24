@@ -1,0 +1,25 @@
+{
+    "name": "marouanbahtit/product-service",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\ProductService\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\ProductService\\Providers\\ProductServiceServiceProvider"
+            ]
+        }
+    }
+}

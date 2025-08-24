@@ -1,0 +1,53 @@
+{
+    "name": "marouanbahtit/paypal",
+    "description": "Description for paypal package",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "srmklive/paypal": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarouanBahtit\\Paypal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marouan Bahtit",
+            "email": "marouan.bahtit@example.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MarouanBahtit\\Paypal\\Providers\\PaypalServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\ViewComposer",
+                "MarouanBahtit\\Paypal\\Providers\\InvoicePayment",
+                "MarouanBahtit\\Paypal\\Providers\\RetainerPayment",
+                "MarouanBahtit\\Paypal\\Providers\\CoursePayment",
+                "MarouanBahtit\\Paypal\\Providers\\HotelRoomBookingPayment",
+                "MarouanBahtit\\Paypal\\Providers\\propertyInvoicePayment",
+                "MarouanBahtit\\Paypal\\Providers\\VehicleBookingPayment",
+                "MarouanBahtit\\Paypal\\Providers\\MembershipPlanPayment",
+                "MarouanBahtit\\Paypal\\Providers\\BeautySpaSerivceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\ParkingSerivceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\ContentPayment",
+                "MarouanBahtit\\Paypal\\Providers\\MovieShowBookingServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\EventShowBookingServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\BookingsServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\FacilitiesSerivceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\VcardSerivceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\CoworkingPlanServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\CoworkingBookingServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\WaterParkServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\SportsAndClubBookingSerivceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\SportsAndClubMembershipPlanSerivceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\BoutiqueBookingServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\BankAccountPayments",
+                "MarouanBahtit\\Paypal\\Providers\\BrandDepositServiceProvider",
+                "MarouanBahtit\\Paypal\\Providers\\NGODonationPayment",
+                "MarouanBahtit\\Paypal\\Providers\\ArtShowcasePaymentSerivceProvider"                
+            ]
+        }
+    }
+}

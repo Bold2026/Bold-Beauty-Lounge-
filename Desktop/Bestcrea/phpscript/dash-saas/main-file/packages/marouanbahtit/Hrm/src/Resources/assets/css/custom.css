@@ -1,0 +1,42 @@
+.set-card {
+    height: 300px !important;
+    overflow: auto;
+
+}
+
+.doc-description {
+    white-space: break-spaces !important;
+
+}
+.drp-language .dropdown-toggle{
+    color: #525B69;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 0.7rem;
+    margin: 0 7.5px;
+    border-radius: 4px;
+    position: relative;
+    font-weight: 500;
+    border-radius: 12px;
+    border: 1px solid rgba(206, 206, 206, 0.2);
+}
+
+.emp-card {
+    min-height: 265px !important;
+}
+
+/* employee show css */
+.employee-card .card .info.font-style{
+    margin-bottom: 10px;
+}
+.employee-card .card .info.font-style strong{
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+@media screen and (min-width: 768px){
+    .employee-card  .card-body{
+        position: relative;
+    }
+   
+}

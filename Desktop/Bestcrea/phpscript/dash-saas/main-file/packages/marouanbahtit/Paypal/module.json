@@ -1,0 +1,10 @@
+{
+    "name": "Paypal",
+    "alias": "PayPal",
+    "description": "",
+    "priority": 1510,
+    "version": 3.8,
+    "monthly_price": 0,
+    "yearly_price": 0,
+    "package_name": "paypal"
+}
