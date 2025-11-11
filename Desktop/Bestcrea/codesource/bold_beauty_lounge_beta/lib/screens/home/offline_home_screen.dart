@@ -2002,7 +2002,7 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
             ),
           ),
           SizedBox(
-            height: 360,
+            height: 420,
             child: PageView.builder(
               controller: _specialistPageController,
               physics: const BouncingScrollPhysics(),
@@ -2073,6 +2073,7 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
                 imagePath,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
                     color: const Color(0xFFEDEDED),
