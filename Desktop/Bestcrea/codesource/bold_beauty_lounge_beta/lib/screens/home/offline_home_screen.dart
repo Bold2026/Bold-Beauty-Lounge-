@@ -1256,7 +1256,7 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
           const Padding(
             padding: EdgeInsets.only(left: 4, bottom: 16),
             child: Text(
-              'Vos avantages fidélité',
+              'Nos Avantages et Fidélité',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -1486,7 +1486,7 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
           const Padding(
             padding: EdgeInsets.only(left: 4.0, bottom: 20.0),
             child: Text(
-              'Catégories',
+              'Nos Catégories',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
