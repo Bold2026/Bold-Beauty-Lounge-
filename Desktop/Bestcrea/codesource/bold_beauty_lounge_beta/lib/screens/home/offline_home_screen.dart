@@ -1591,9 +1591,9 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
         child: SizedBox(
-          height: 360,
+          height: 320,
           child: Container(
-            padding: const EdgeInsets.fromLTRB(32, 38, 32, 34),
+            padding: const EdgeInsets.fromLTRB(28, 32, 28, 24),
             decoration: BoxDecoration(
               color: const Color(0xFF080808),
               borderRadius: BorderRadius.circular(28),
@@ -1628,7 +1628,7 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
                     height: 1.4,
                   ),
                 ),
-                const SizedBox(height: 26),
+                const SizedBox(height: 18),
                 Text(
                   pack['price'] as String,
                   textAlign: TextAlign.center,
@@ -1639,42 +1639,45 @@ class _OfflineHomeScreenState extends State<OfflineHomeScreen> {
                     letterSpacing: 0.6,
                   ),
                 ),
-                const SizedBox(height: 24),
-                ...details.map(
-                  (detail) => Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Text(
-                      detail,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontSize: 14,
-                        height: 1.4,
-                      ),
-                    ),
+                const SizedBox(height: 12),
+                Expanded(
+                  child: ListView.separated(
+                    padding: EdgeInsets.zero,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: details.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 6),
+                    itemBuilder: (context, index) {
+                      return Text(
+                        details[index],
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 14,
+                          height: 1.3,
+                        ),
+                      );
+                    },
                   ),
                 ),
-                const Spacer(),
+                const SizedBox(height: 16),
                 SizedBox(
                   width: double.infinity,
-                  child: SizedBox(
-                    height: 48,
-                    child: ElevatedButton(
-                      onPressed: () => _handlePackTap(context),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
+                  child: ElevatedButton(
+                    onPressed: () => _handlePackTap(context),
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
                       ),
-                      child: const Text(
-                        'Réservez maintenant',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15,
-                        ),
+                    ),
+                    child: const Text(
+                      'Réservez maintenant',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
                       ),
                     ),
                   ),
