@@ -198,13 +198,26 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
           width: 40,
           height: 40,
           decoration: BoxDecoration(
-            color: const Color(0xFFDDD1BC),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: const Icon(
-            Icons.spa,
-            color: Colors.black,
-            size: 24,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.asset(
+              'assets/logo/logo1.png',
+              width: 40,
+              height: 40,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Container(
+                  color: const Color(0xFFDDD1BC),
+                  child: const Icon(
+                    Icons.spa,
+                    color: Colors.black,
+                    size: 24,
+                  ),
+                );
+              },
+            ),
           ),
         ),
         const SizedBox(width: 12),

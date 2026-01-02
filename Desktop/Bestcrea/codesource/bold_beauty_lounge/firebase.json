@@ -1,1 +1,47 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"bold-beauty-lounge-604a0","appId":"1:1030721926726:android:e18d7bdce6e8a4c96f7c47","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"bold-beauty-lounge-604a0","appId":"1:1030721926726:ios:265e8c77d336113e6f7c47","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"macos":{"default":{"projectId":"bold-beauty-lounge-604a0","appId":"1:1030721926726:ios:265e8c77d336113e6f7c47","uploadDebugSymbols":false,"fileOutput":"macos/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"bold-beauty-lounge-604a0","configurations":{"android":"1:1030721926726:android:e18d7bdce6e8a4c96f7c47","ios":"1:1030721926726:ios:265e8c77d336113e6f7c47","macos":"1:1030721926726:ios:265e8c77d336113e6f7c47","web":"1:1030721926726:web:198729d193ef2bc06f7c47","windows":"1:1030721926726:web:f391c4e9b8b8ee326f7c47"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "bold-beauty-lounge-604a0",
+          "appId": "1:1030721926726:android:e18d7bdce6e8a4c96f7c47",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "bold-beauty-lounge-604a0",
+          "appId": "1:1030721926726:ios:265e8c77d336113e6f7c47",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "bold-beauty-lounge-604a0",
+          "appId": "1:1030721926726:ios:265e8c77d336113e6f7c47",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "bold-beauty-lounge-604a0",
+          "configurations": {
+            "android": "1:1030721926726:android:e18d7bdce6e8a4c96f7c47",
+            "ios": "1:1030721926726:ios:265e8c77d336113e6f7c47",
+            "macos": "1:1030721926726:ios:265e8c77d336113e6f7c47",
+            "web": "1:1030721926726:web:198729d193ef2bc06f7c47",
+            "windows": "1:1030721926726:web:f391c4e9b8b8ee326f7c47"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "nam5",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

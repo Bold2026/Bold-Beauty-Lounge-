@@ -1,61 +1,40 @@
 rules_version = '2';
+
 service cloud.firestore {
   match /databases/{database}/documents {
-    function isSignedIn() { 
-      return request.auth != null; 
-    }
-    
-    function isOwner(userId) { 
-      return isSignedIn() && request.auth.uid == userId; 
-    }
-    
-    function isAdmin() {
-      return isSignedIn() && 
-             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+
+    function isSignedIn() {
+      return request.auth != null;
     }
 
-    // Règles pour les utilisateurs
-    match /users/{userId} {
-      allow read: if isOwner(userId) || isAdmin();
-      allow write: if isOwner(userId) || isAdmin();
+    function isActiveAdmin() {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isActive == true;
     }
 
-    // Règles pour les réservations
+    // Admin doc: admin can read only their own doc
+    match /admins/{adminId} {
+      allow read: if isSignedIn() && request.auth.uid == adminId;
+      allow write: if false;
+    }
+
+    // Admin panel access to bookings (full)
     match /bookings/{bookingId} {
-      // Tous les utilisateurs connectés peuvent créer une réservation
-      allow create: if isSignedIn();
-      
-      // Les utilisateurs peuvent lire leurs propres réservations
-      // Les admins peuvent lire toutes les réservations
-      allow read: if isSignedIn() && (
-        resource.data.userId == request.auth.uid || 
-        isAdmin()
-      );
-      
-      // Les utilisateurs peuvent mettre à jour leurs propres réservations (annulation)
-      // Les admins peuvent mettre à jour toutes les réservations
-      allow update: if isSignedIn() && (
-        resource.data.userId == request.auth.uid || 
-        isAdmin()
-      );
-      
-      // Les utilisateurs peuvent supprimer leurs propres réservations
-      // Les admins peuvent supprimer toutes les réservations
-      allow delete: if isSignedIn() && (
-        resource.data.userId == request.auth.uid || 
-        isAdmin()
-      );
+      allow read, write: if isActiveAdmin();
     }
 
-    // Règles pour les services (lecture publique)
-    match /services/{serviceId} {
-      allow read: if true;
-      allow write: if isAdmin();
+    // Example: clients/users collection for admin only
+    match /clients/{clientId} {
+      allow read, write: if isActiveAdmin();
     }
 
-    // Règles par défaut - refuser tout le reste
-    match /{document=**} {
-      allow read, write: if false;
+    // (IMPORTANT) Public app rules (customize to your app)
+    // Example: user can read/write their own bookings only
+    match /bookings/{bookingId} {
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow update, delete: if false; // or allow cancel with conditions
     }
   }
 }

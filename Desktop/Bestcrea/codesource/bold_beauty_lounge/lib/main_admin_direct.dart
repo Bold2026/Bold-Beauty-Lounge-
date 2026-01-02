@@ -70,7 +70,16 @@ void main() async {
     print('⚠️ Continuing without Firebase - UI will work but Firebase features will be disabled');
   }
 
-  // STEP 5: Run the app
+  // STEP 5: Set up error handling
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    print('❌ Flutter Error: ${details.exception}');
+    if (details.stack != null) {
+      print('Stack trace: ${details.stack}');
+    }
+  };
+
+  // STEP 6: Run the app
   runApp(const AdminPanelApp());
 }
 
@@ -112,7 +121,18 @@ class AdminPanelApp extends StatelessWidget {
             data: MediaQuery.of(
               context,
             ).copyWith(textScaler: const TextScaler.linear(1.0)),
-            child: child!,
+            child: child ?? const Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 16),
+                    Text('Chargement...'),
+                  ],
+                ),
+              ),
+            ),
           );
         },
         home: const AdminMainScreen(),

@@ -4,8 +4,8 @@ import '../../models/admin/admin_model.dart';
 import '../../repositories/admin/admin_repository.dart';
 
 class AdminAuthProvider with ChangeNotifier {
-  final AdminRepository _adminRepository;
-  final FirebaseAuth _auth;
+  final AdminRepository? _adminRepository;
+  final FirebaseAuth? _auth;
 
   AdminModel? _currentAdmin;
   bool _isLoading = false;
@@ -14,9 +14,9 @@ class AdminAuthProvider with ChangeNotifier {
   AdminAuthProvider({
     AdminRepository? adminRepository,
     FirebaseAuth? auth,
-  })  : _adminRepository = adminRepository ?? AdminRepository(),
-        _auth = auth ?? FirebaseAuth.instance {
-    // Initialize auth state listener
+  })  : _adminRepository = adminRepository,
+        _auth = auth {
+    // Initialize auth state listener only if Firebase is available
     _init();
   }
 
@@ -26,9 +26,13 @@ class AdminAuthProvider with ChangeNotifier {
   bool get isAuthenticated => _currentAdmin != null;
 
   void _init() {
+    if (_auth == null) {
+      debugPrint('⚠️ Firebase Auth not available, skipping auth state listener');
+      return;
+    }
     try {
-      _auth.authStateChanges().listen((user) async {
-        if (user != null) {
+      _auth!.authStateChanges().listen((user) async {
+        if (user != null && _adminRepository != null) {
           await _loadAdminData(user.uid);
         } else {
           _currentAdmin = null;
@@ -45,14 +49,15 @@ class AdminAuthProvider with ChangeNotifier {
   }
 
   Future<void> _loadAdminData(String userId) async {
+    if (_adminRepository == null) return;
     try {
-      final admin = await _adminRepository.getAdminById(userId);
+      final admin = await _adminRepository!.getAdminById(userId);
       if (admin != null && admin.isActive) {
         _currentAdmin = admin;
-        await _adminRepository.updateLastLogin(userId);
+        await _adminRepository!.updateLastLogin(userId);
       } else {
         _currentAdmin = null;
-        await _auth.signOut();
+        await _auth?.signOut();
       }
       notifyListeners();
     } catch (e) {
@@ -62,31 +67,48 @@ class AdminAuthProvider with ChangeNotifier {
   }
 
   Future<bool> login(String email, String password) async {
+    if (_auth == null || _adminRepository == null) {
+      _error = 'Firebase n\'est pas configuré. Veuillez exécuter "flutterfire configure" pour configurer Firebase.';
+      _isLoading = false;
+      notifyListeners();
+      return false;
+    }
+
     _isLoading = true;
     _error = null;
     notifyListeners();
 
     try {
-      final credential = await _auth.signInWithEmailAndPassword(
+      final credential = await _auth!.signInWithEmailAndPassword(
         email: email.trim().toLowerCase(),
         password: password,
       );
 
       if (credential.user != null) {
-        final admin = await _adminRepository.getAdminByEmail(
+        final admin = await _adminRepository!.getAdminByEmail(
           email.trim().toLowerCase(),
         );
 
-        if (admin == null || !admin.isActive) {
-          await _auth.signOut();
-          _error = 'Accès non autorisé. Vous n\'êtes pas administrateur.';
+        if (admin == null) {
+          await _auth!.signOut();
+          _error = 'Accès refusé. Aucun compte administrateur trouvé avec cet email.\n'
+              'Vérifiez que votre compte existe dans la collection "admins" de Firestore.';
+          _isLoading = false;
+          notifyListeners();
+          return false;
+        }
+
+        if (!admin.isActive) {
+          await _auth!.signOut();
+          _error = 'Accès refusé. Votre compte administrateur est désactivé.\n'
+              'Contactez un administrateur pour réactiver votre compte.';
           _isLoading = false;
           notifyListeners();
           return false;
         }
 
         _currentAdmin = admin;
-        await _adminRepository.updateLastLogin(admin.id);
+        await _adminRepository!.updateLastLogin(admin.id);
         _isLoading = false;
         notifyListeners();
         return true;
@@ -109,7 +131,7 @@ class AdminAuthProvider with ChangeNotifier {
   }
 
   Future<void> logout() async {
-    await _auth.signOut();
+    await _auth?.signOut();
     _currentAdmin = null;
     _error = null;
     notifyListeners();

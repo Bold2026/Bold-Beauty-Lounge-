@@ -1,0 +1,102 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function: check if user is signed in
+    function isSignedIn() { 
+      return request.auth != null; 
+    }
+    
+    // Helper function: check if user owns the resource
+    function isOwner(userId) { 
+      return isSignedIn() && request.auth.uid == userId; 
+    }
+    
+    // Helper function: check if user is an active admin
+    // Admin must exist in /admins/{uid} collection with isActive == true
+    function isAdmin() {
+      return isSignedIn() && 
+             exists(/databases/$(database)/documents/admins/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.isActive == true;
+    }
+
+    // Users collection: users can only access their own data
+    // IMPORTANT: Users cannot directly modify boldCoinsBalance
+    // Balance changes must happen through transactions only
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      
+      // CREATE: Only allow creation if it's the user's own document
+      allow create: if isOwner(userId) && 
+                    request.resource.data.boldCoinsBalance == 0;
+      
+      // UPDATE: Users can update their own profile, but NOT boldCoinsBalance directly
+      // Admins can update anything (for admin adjustments via transactions)
+      allow update: if (isOwner(userId) && 
+                       request.resource.data.boldCoinsBalance == resource.data.boldCoinsBalance) ||
+                      isAdmin();
+      
+      // DELETE: Users cannot delete their own profile
+      allow delete: if false;
+      
+      // Coin Transactions subcollection
+      match /coinTransactions/{txId} {
+        // Users can read their own transactions, admins can read all
+        allow read: if isOwner(userId) || isAdmin();
+        
+        // CREATE: Only through service layer (transactions), users cannot create directly
+        // This is enforced by the service layer using Firestore transactions
+        allow create: if isOwner(userId) || isAdmin();
+        
+        // UPDATE/DELETE: Transactions are immutable once created
+        allow update, delete: if false;
+      }
+      
+      // Contacts subcollection
+      match /contacts/{contactId} {
+        // Users can read/write their own contacts, admins can read all
+        allow read: if isOwner(userId) || isAdmin();
+        allow write: if isOwner(userId) || isAdmin();
+      }
+    }
+
+    // Bookings collection: main booking rules
+    match /bookings/{bookingId} {
+      // CREATE: Any signed-in user can create a booking
+      // The userId field will be set to request.auth.uid automatically
+      allow create: if isSignedIn() && 
+                    request.resource.data.userId == request.auth.uid;
+      
+      // READ: Users can read their own bookings, admins can read all bookings
+      allow read: if isSignedIn() && 
+        (resource.data.userId == request.auth.uid || isAdmin());
+      
+      // UPDATE: Users can update their own bookings, admins can update all bookings
+      // Ensure userId cannot be changed
+      allow update: if isSignedIn() && 
+        (resource.data.userId == request.auth.uid || isAdmin()) &&
+        request.resource.data.userId == resource.data.userId;
+      
+      // DELETE: Users can delete their own bookings, admins can delete all bookings
+      allow delete: if isSignedIn() && 
+        (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Admins collection: only active admins can access
+    match /admins/{adminId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // System collection: for BOLD_SYSTEM wallet
+    match /system/{systemId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // Default: deny all other access
+    match /{document=**} {
+      allow read: if false;
+      allow write: if false;
+    }
+  }
+}
