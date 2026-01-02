@@ -1,0 +1,97 @@
+name: bold_beauty_lounge_beta
+description: "Application mobile pour Bold Beauty Lounge - Salon de beauté à Casablanca"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  carousel_slider: 5.1.1
+  provider: 6.1.5+1
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.2.2
+  connectivity_plus: ^5.0.2
+  local_auth: ^2.1.7
+  crypto: ^3.0.3
+  http: ^1.1.0
+  image_picker: ^1.0.4
+  path_provider: ^2.1.1
+  path: ^1.8.3
+  google_maps_flutter: 2.13.1
+  date_picker_timeline: ^1.2.7
+  # Animation dependencies
+  shimmer: ^3.0.0
+  lottie: ^3.1.2
+  animations: ^2.0.11
+  flutter_staggered_animations: ^1.1.1
+  # Typography
+  google_fonts: ^6.1.0
+  lucide_icons: ^0.257.0
+  barcode_widget: ^2.0.3
+  pdf: ^3.10.7
+  printing: ^5.12.0
+  # Notifications
+  flutter_local_notifications: ^17.2.2
+  permission_handler: ^11.3.1
+  # Firebase dependencies
+  firebase_core: ^4.3.0
+  firebase_auth: ^6.1.3
+  cloud_firestore: ^6.1.1
+  firebase_storage: ^13.0.5
+  # Note: firebase_storage_web has compatibility issues, but storage is not used in admin panel
+  firebase_analytics: ^12.1.0
+  firebase_messaging: ^16.1.0
+  google_sign_in: ^6.1.5
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/app_icon.png"
+  adaptive_icon_foreground: "assets/logo/app_icon.png"
+  adaptive_icon_background: "#000000"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/logo/app_icon.png"
+    background_color: "#000000"
+    theme_color: "#000000"
+  windows:
+    generate: true
+    image_path: "assets/logo/app_icon.png"
+    icon_size: 48
+  macos:
+    generate: true
+    image_path: "assets/logo/app_icon.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/logo/
+    - assets/services/
+    - assets/specialists/
+    - assets/icons/
+    - assets/icons2/
+    - assets/profil/
+    - assets/chatboot/
+    - assets/translations/
+    - assets/onboarding/
+  fonts:
+    - family: DancingScript
+      fonts:
+        - asset: assets/font/Dancing_Script/DancingScript-VariableFont_wght.ttf
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+          weight: 700
